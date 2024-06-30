@@ -10,7 +10,7 @@ CCFLAGS = -O3 -pipe -I$(SRC_DIR)
 LIBS = -lm
 
 ## Build rules
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c:
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
@@ -24,3 +24,9 @@ clean:
 
 install:
 	cp $(EXE) /usr/bin/
+
+	all: tuibox
+
+LIBS=-lm
+CFLAGS=-O3 -pipe
+DEBUGCFLAGS=-Og -pipe -g
